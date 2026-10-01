@@ -2,348 +2,275 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Own Task, Framed and Refined</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Your Own Task, Framed and Refined · Swift AI Academy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="wrap">
+<div class="app">
 
-  <header>
-    <div class="eyebrow">
-      <span class="mono schema">AAI-E-MC1-S02-LAB02</span>
-      <span class="badge">Practical Lab Task</span>
-      <span class="badge">1.0 hrs</span>
-      <span class="badge">Practical</span>
-    </div>
-    <h1>Your Own Task, Framed and Refined</h1>
-    <p class="subtitle">Use a real task from your week. Frame it. Refine it. Know when to stop.</p>
+  <header class="top">
+    <div class="brand"><span class="brand-mark" aria-hidden="true"></span>Swift&nbsp;AI&nbsp;Academy</div>
+    <div class="top-meta">Section 1.2 · Framing and Refining</div>
   </header>
 
-  <div class="progress" aria-hidden="true">
-    <span class="progress-dot active" data-dot="1"></span>
-    <span class="progress-dot" data-dot="2"></span>
-    <span class="progress-dot" data-dot="3"></span>
-    <span class="progress-dot" data-dot="4"></span>
-    <span class="progress-dot" data-dot="5"></span>
-    <span class="progress-dot" data-dot="6"></span>
-    <span class="progress-dot" data-dot="7"></span>
-  </div>
+  <main class="stage">
 
-  <!-- PAGE 1 — intro -->
-  <div id="page-1" class="page">
-
-    <section>
-      <h2>How this works</h2>
-      <p>Pick one real task from this week. Frame it. Refine it. Then reflect.</p>
-
-      <div class="step-flow">
-        <div class="recap-node c1">
-          <span class="recap-num">1</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"></path></svg>
-          <p>Pick one real task, and frame it fully.</p>
+    <!-- 1 · Opening -->
+    <section class="slide" id="intro" data-next="Start">
+      <div class="card narrow">
+        <div class="head">
+          <div class="eyebrow">Practical Lab Task · 1.0 hrs · Practical</div>
+          <h1 class="title">Your Own Task, Framed and Refined</h1>
+          <p class="lede">Use a real task from your week. Frame it, refine it, and know when to stop.</p>
         </div>
-        <svg class="step-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
-        <div class="recap-node c4">
-          <span class="recap-num">2</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"></path><polyline points="21 3 21 9 15 9"></polyline></svg>
-          <p>Refine it at least twice.</p>
+        <div class="rule"></div>
+        <div class="flow">
+          <div class="tile"><span class="dot-ic">1</span><h3>Frame it</h3><p>Write one clear, full request.</p></div>
+          <div class="flow-arrow"><span data-i="arrow-right"></span></div>
+          <div class="tile"><span class="dot-ic">2</span><h3>Refine it</h3><p>Improve the answer two times.</p></div>
+          <div class="flow-arrow"><span data-i="arrow-right"></span></div>
+          <div class="tile"><span class="dot-ic">3</span><h3>Stop and reflect</h3><p>Stop when fixing it yourself is faster.</p></div>
         </div>
-        <svg class="step-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
-        <div class="recap-node c2">
-          <span class="recap-num">3</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          <p>Stop when fixing it yourself is faster. Then reflect.</p>
-        </div>
-      </div>
-
-      <p class="hint" style="margin-top:12px;">You will need an approved AI tool open beside this page.</p>
-    </section>
-
-    <div class="page-nav">
-      <button type="button" class="btn-next" data-target="1">
-        Start
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-      </button>
-    </div>
-
-  </div>
-
-  <!-- PAGE 2 — pick your task -->
-  <div id="page-2" class="page" hidden>
-
-    <div class="page-nav page-nav-start">
-      <button type="button" class="btn-back" data-target="0">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-        Back
-      </button>
-    </div>
-
-    <section>
-      <h2>Step 1 &middot; Pick your task</h2>
-      <p>Choose one small, real task from this week. Nothing private or urgent.</p>
-
-      <ul class="pointer-list">
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          Idea: a reminder for your batch
-        </li>
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          Idea: a note for your record book
-        </li>
-        <li>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          Idea: a message to your study group or class group
-        </li>
-      </ul>
-
-      <div class="practice-box">
-        <label for="task-name">My task</label>
-        <input type="text" id="task-name" placeholder="e.g. write a reminder about tomorrow's practical">
+        <div class="callout info"><span data-i="bot"></span><span>Keep your approved AI tool open in another tab.</span></div>
+        <p class="code">AAI-E-MC1-S02-LAB02</p>
       </div>
     </section>
 
-    <div class="page-nav">
-      <button type="button" class="btn-next" data-target="2">
-        Next
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-      </button>
-    </div>
-
-  </div>
-
-  <!-- PAGE 3 — frame it fully -->
-  <div id="page-3" class="page" hidden>
-
-    <div class="page-nav page-nav-start">
-      <button type="button" class="btn-back" data-target="1">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-        Back
-      </button>
-    </div>
-
-    <section>
-      <h2>Step 2 &middot; Frame it fully</h2>
-      <p>Fill in all 4 parts. This becomes your first request.</p>
-
-      <div class="builder">
-        <label for="b-role">Role <span class="opt">who should the AI act as?</span></label>
-        <input type="text" id="b-role" placeholder="e.g. a workshop teacher">
-
-        <label for="b-context">Context <span class="opt">why do you need this, and who is it for?</span></label>
-        <input type="text" id="b-context" placeholder="e.g. my batch, before Monday's class">
-
-        <label for="b-task">Task <span class="opt">what should the AI make?</span></label>
-        <input type="text" id="b-task" placeholder="e.g. write a short reminder">
-
-        <label for="b-format">Format <span class="opt">how should it look?</span></label>
-        <input type="text" id="b-format" placeholder="e.g. 3 points for the noticeboard">
+    <!-- 2 · Keep it safe -->
+    <section class="slide" id="safe">
+      <div class="card narrow">
+        <div class="head">
+          <div class="eyebrow">Before you start</div>
+          <h2 class="title">Practise with made-up details</h2>
+          <p class="lede">Never type these into an AI tool, not even for practice.</p>
+        </div>
+        <div class="grid g4">
+          <div class="tile center"><span class="dot-ic"><span data-i="user"></span></span><h3>Real names</h3></div>
+          <div class="tile center"><span class="dot-ic"><span data-i="award"></span></span><h3>Marks</h3></div>
+          <div class="tile center"><span class="dot-ic"><span data-i="phone"></span></span><h3>Phone numbers</h3></div>
+          <div class="tile center"><span class="dot-ic"><span data-i="id"></span></span><h3>ID numbers</h3></div>
+        </div>
+        <div class="callout info"><span data-i="download"></span><span>This page does not save your work. You will download your answers at the end.</span></div>
       </div>
-
-      <p class="hint" style="margin:12px 0 6px;">Your request</p>
-      <div class="prompt-preview" id="prompt-preview">You are ___. For ___, ___. Format it as ___.</div>
-      <button type="button" class="btn-copy" id="copy-btn">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-        Copy request
-      </button>
-
-      <label for="out-first" style="display:block;margin-top:16px;">Paste the AI's first answer</label>
-      <textarea id="out-first" rows="3" placeholder="Paste the AI's answer here"></textarea>
     </section>
 
-    <div class="page-nav">
-      <button type="button" class="btn-next" data-target="3">
-        Next
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-      </button>
-    </div>
-
-  </div>
-
-  <!-- PAGE 4 — refine it twice -->
-  <div id="page-4" class="page" hidden>
-
-    <div class="page-nav page-nav-start">
-      <button type="button" class="btn-back" data-target="2">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-        Back
-      </button>
-    </div>
-
-    <section>
-      <h2>Step 3 &middot; Refine it, twice</h2>
-      <p>Pick a move. Try it. Do this 2 times.</p>
-
-      <div class="move-reminder">
-        <span class="mini-chip">Narrow</span>
-        <span class="mini-chip">Expand</span>
-        <span class="mini-chip">Change register</span>
-        <span class="mini-chip">Check it</span>
-        <span class="mini-chip">Combine</span>
-      </div>
-
-      <div class="practice-box">
-        <p class="practice-label">Round 1</p>
-        <p class="hint">Which move did you use?</p>
-        <div class="mcq-group">
-          <div class="mcq-options wrap-5">
-            <button type="button" class="mcq-option">Narrow</button>
-            <button type="button" class="mcq-option">Expand</button>
-            <button type="button" class="mcq-option">Change register</button>
-            <button type="button" class="mcq-option">Check it</button>
-            <button type="button" class="mcq-option">Combine</button>
+    <!-- 3 · Step 1: pick a task -->
+    <section class="slide" id="pick">
+      <div class="card narrow">
+        <div class="head">
+          <div class="eyebrow">Step 1 · Pick your task</div>
+          <h2 class="title">Choose one small, real task</h2>
+          <p class="lede">Pick something from this week. Nothing private, nothing urgent.</p>
+        </div>
+        <div class="field">
+          <span class="label" id="idea-label">Need an idea? Tap one.</span>
+          <div class="chips" id="ideas" role="group" aria-labelledby="idea-label">
+            <button type="button" class="chip" aria-pressed="false" data-idea="write a reminder for my batch"><span data-i="mega"></span>A reminder for my batch</button>
+            <button type="button" class="chip" aria-pressed="false" data-idea="write a note for my record book"><span data-i="book"></span>A note for my record book</button>
+            <button type="button" class="chip" aria-pressed="false" data-idea="write a message to my study group"><span data-i="chat"></span>A message to my study group</button>
           </div>
         </div>
-        <label for="r1-ask">What did you ask the AI to do?</label>
-        <textarea id="r1-ask" rows="2" placeholder="e.g. Only tell me about the timing part."></textarea>
-        <label for="r1-out">New output</label>
-        <textarea id="r1-out" rows="2" placeholder="Paste the AI's new answer here"></textarea>
+        <div class="field">
+          <label class="label" for="task-name">My task</label>
+          <input class="input" type="text" id="task-name" placeholder="e.g. write a reminder about tomorrow's practical">
+        </div>
       </div>
+    </section>
 
-      <div class="practice-box" style="margin-top:12px;">
-        <p class="practice-label">Round 2</p>
-        <p class="hint">Which move did you use?</p>
-        <div class="mcq-group">
-          <div class="mcq-options wrap-5">
-            <button type="button" class="mcq-option">Narrow</button>
-            <button type="button" class="mcq-option">Expand</button>
-            <button type="button" class="mcq-option">Change register</button>
-            <button type="button" class="mcq-option">Check it</button>
-            <button type="button" class="mcq-option">Combine</button>
+    <!-- 4 · Step 2: frame it -->
+    <section class="slide" id="frame">
+      <div class="card">
+        <div class="head">
+          <div class="eyebrow">Step 2 · Frame it</div>
+          <h2 class="title">Fill in all 4 parts</h2>
+          <p class="lede">Together, they make your first request.</p>
+        </div>
+        <div class="two-col">
+          <div class="fields">
+            <div class="field">
+              <label class="label" for="b-role">Role <span class="help">who should the AI act as?</span></label>
+              <input class="input" type="text" id="b-role" placeholder="e.g. a workshop teacher">
+            </div>
+            <div class="field">
+              <label class="label" for="b-context">Context <span class="help">who is it for, and why?</span></label>
+              <input class="input" type="text" id="b-context" placeholder="e.g. my batch, before Monday's class">
+            </div>
+            <div class="field">
+              <label class="label" for="b-task">Task <span class="help">what should the AI make?</span></label>
+              <input class="input" type="text" id="b-task" placeholder="e.g. write a short reminder">
+            </div>
+            <div class="field">
+              <label class="label" for="b-format">Format <span class="help">how should it look?</span></label>
+              <input class="input" type="text" id="b-format" placeholder="e.g. 3 points for the noticeboard">
+            </div>
+          </div>
+          <div class="col">
+            <span class="preview-label">Your request</span>
+            <div class="preview" data-preview aria-live="polite"></div>
+            <p class="small">It builds as you type.</p>
           </div>
         </div>
-        <label for="r2-ask">What did you ask the AI to do?</label>
-        <textarea id="r2-ask" rows="2" placeholder="e.g. What might be wrong here?"></textarea>
-        <label for="r2-out">New output</label>
-        <textarea id="r2-out" rows="2" placeholder="Paste the AI's new answer here"></textarea>
       </div>
     </section>
 
-    <div class="page-nav">
-      <button type="button" class="btn-next" data-target="4">
-        Next
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-      </button>
-    </div>
-
-  </div>
-
-  <!-- PAGE 5 — know when to stop -->
-  <div id="page-5" class="page" hidden>
-
-    <div class="page-nav page-nav-start">
-      <button type="button" class="btn-back" data-target="3">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-        Back
-      </button>
-    </div>
-
-    <section>
-      <h2>Step 4 &middot; Know when to stop</h2>
-      <p>At some point, fixing it yourself is faster than asking again.</p>
-
-      <div class="practice-box">
-        <label for="stop-point">Where did you stop, and why?</label>
-        <textarea id="stop-point" rows="3" placeholder="e.g. I stopped after round 2 and fixed the last line myself — it was quicker."></textarea>
-      </div>
-
-      <div class="stop-rule">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9A6B00" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><line x1="8" y1="12" x2="16" y2="12"></line></svg>
-        <div>
-          <span class="label">Stop rule</span>
-          <p>If fixing it yourself is faster, just fix it. Always check before you use it.</p>
+    <!-- 5 · Step 2: run it -->
+    <section class="slide" id="run">
+      <div class="card narrow">
+        <div class="head">
+          <div class="eyebrow">Step 2 · Ask the AI</div>
+          <h2 class="title">Run your request</h2>
+          <p class="lede">Copy your request and paste it into your AI tool. Then paste its first answer here.</p>
+        </div>
+        <div class="preview" data-preview></div>
+        <div class="row">
+          <button type="button" class="btn btn-ghost btn-sm" id="copy-request"><span data-i="copy"></span>Copy request</button>
+        </div>
+        <div class="field">
+          <label class="label" for="out-first">The AI's first answer</label>
+          <textarea class="input" id="out-first" rows="4" placeholder="Paste the AI's answer here"></textarea>
         </div>
       </div>
     </section>
 
-    <div class="page-nav">
-      <button type="button" class="btn-next" data-target="5">
-        Next
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-      </button>
-    </div>
-
-  </div>
-
-  <!-- PAGE 6 — reflect -->
-  <div id="page-6" class="page" hidden>
-
-    <div class="page-nav page-nav-start">
-      <button type="button" class="btn-back" data-target="4">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-        Back
-      </button>
-    </div>
-
-    <section>
-      <h2>Step 5 &middot; Reflect</h2>
-      <p>What did the AI do? What did you do?</p>
-
-      <div class="practice-box">
-        <label for="ai-part">What the AI helped with</label>
-        <textarea id="ai-part" rows="3" placeholder="e.g. it gave me a first draft and shortened it"></textarea>
-
-        <label for="my-part">What I did myself</label>
-        <textarea id="my-part" rows="3" placeholder="e.g. I picked the task, checked the facts, and fixed the last line"></textarea>
+    <!-- 6 · Step 3: the five moves -->
+    <section class="slide" id="moves" data-next="Start round 1">
+      <div class="card narrow">
+        <div class="head">
+          <div class="eyebrow">Step 3 · Refine it</div>
+          <h2 class="title">Five ways to improve an answer</h2>
+          <p class="lede">Look at what is wrong with the answer. Then pick the move that fixes it.</p>
+        </div>
+        <ul class="list" id="move-list"></ul>
       </div>
     </section>
 
-    <div class="page-nav">
-      <button type="button" class="btn-next" data-target="6">
-        Review &amp; finish
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-      </button>
-    </div>
-
-  </div>
-
-  <!-- PAGE 7 — review + evidence download -->
-  <div id="page-7" class="page" hidden>
-
-    <div class="page-nav page-nav-start">
-      <button type="button" class="btn-back" data-target="5">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-        Back
-      </button>
-    </div>
-
-    <section>
-      <h2>Your evidence</h2>
-      <p>Check you have all these parts, then download your answers.</p>
-      <ul class="evidence-list">
-        <li>Your task and your framed request</li>
-        <li>Two rounds of refining, with what you asked and what changed</li>
-        <li>Where you stopped, and why</li>
-        <li>What the AI did, and what you did</li>
-      </ul>
+    <!-- 7 · Step 3: round 1 -->
+    <section class="slide" id="r1">
+      <div class="card narrow">
+        <div class="head">
+          <div class="eyebrow">Step 3 · Round 1 of 2</div>
+          <h2 class="title">Refine it: round 1</h2>
+        </div>
+        <div class="field">
+          <span class="label" id="r1-label">Which move did you use?</span>
+          <div class="chips" data-moves="r1" role="group" aria-labelledby="r1-label"></div>
+        </div>
+        <div class="field">
+          <label class="label" for="r1-ask">What did you ask the AI?</label>
+          <textarea class="input" id="r1-ask" rows="2" placeholder="e.g. Only tell me about the timing part."></textarea>
+        </div>
+        <div class="field">
+          <label class="label" for="r1-out">The AI's new answer</label>
+          <textarea class="input" id="r1-out" rows="3" placeholder="Paste the new answer here"></textarea>
+        </div>
+      </div>
     </section>
 
-    <button type="button" class="btn-next" id="download-btn" style="margin-bottom:14px;">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-      Download my answers
-    </button>
-    <p class="hint">This page does not save your work. Download it, or show your facilitator, before you close this tab.</p>
-
-    <div class="stop-rule">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9A6B00" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><line x1="8" y1="12" x2="16" y2="12"></line></svg>
-      <div>
-        <span class="label">Reminder</span>
-        <p>Never type real names, marks, phone numbers or ID numbers into an AI tool. Use made-up details for practice.</p>
+    <!-- 8 · Step 3: round 2 -->
+    <section class="slide" id="r2">
+      <div class="card narrow">
+        <div class="head">
+          <div class="eyebrow">Step 3 · Round 2 of 2</div>
+          <h2 class="title">Refine it: round 2</h2>
+        </div>
+        <div class="field">
+          <span class="label" id="r2-label">Which move did you use?</span>
+          <div class="chips" data-moves="r2" role="group" aria-labelledby="r2-label"></div>
+        </div>
+        <div class="field">
+          <label class="label" for="r2-ask">What did you ask the AI?</label>
+          <textarea class="input" id="r2-ask" rows="2" placeholder="e.g. What might be wrong here?"></textarea>
+        </div>
+        <div class="field">
+          <label class="label" for="r2-out">The AI's new answer</label>
+          <textarea class="input" id="r2-out" rows="3" placeholder="Paste the new answer here"></textarea>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="page-nav">
-      <button type="button" class="btn-back" data-target="0">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"></path><polyline points="21 3 21 9 15 9"></polyline></svg>
-        Start over
-      </button>
-    </div>
+    <!-- 9 · Step 4: know when to stop -->
+    <section class="slide" id="stop">
+      <div class="card narrow">
+        <div class="head">
+          <div class="eyebrow">Step 4 · Know when to stop</div>
+          <h2 class="title">When should you stop?</h2>
+          <p class="lede">At some point, fixing it yourself is faster than asking again.</p>
+        </div>
+        <div class="callout"><span data-i="stop"></span><span><strong>Stop rule.</strong> If fixing it yourself is faster, just fix it. Always check it before you use it.</span></div>
+        <div class="field">
+          <label class="label" for="stop-point">Where did you stop, and why?</label>
+          <textarea class="input" id="stop-point" rows="3" placeholder="e.g. I stopped after round 2 and fixed the last line myself. It was quicker."></textarea>
+        </div>
+      </div>
+    </section>
 
-  </div>
+    <!-- 10 · Step 5: reflect -->
+    <section class="slide" id="reflect" data-next="Review and finish">
+      <div class="card">
+        <div class="head">
+          <div class="eyebrow">Step 5 · Reflect</div>
+          <h2 class="title">Who did what?</h2>
+          <p class="lede">Think about your part and the AI's part. Both matter.</p>
+        </div>
+        <div class="grid g2">
+          <div class="field">
+            <label class="label" for="ai-part">What the AI helped with</label>
+            <textarea class="input" id="ai-part" rows="5" placeholder="e.g. It gave me a first draft and made it shorter."></textarea>
+          </div>
+          <div class="field">
+            <label class="label" for="my-part">What I did myself</label>
+            <textarea class="input" id="my-part" rows="5" placeholder="e.g. I picked the task, checked the facts and fixed the last line."></textarea>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 · Evidence -->
+    <section class="slide" id="evidence" data-next="Download my answers" data-icon="download">
+      <div class="card narrow">
+        <div class="head">
+          <div class="eyebrow">Your evidence</div>
+          <h2 class="title">Check your work, then download it</h2>
+        </div>
+        <ul class="list" id="evidence-list"></ul>
+        <div class="callout info"><span data-i="info"></span><span>This page does not save your work. Download it, or show your facilitator, before you close this tab.</span></div>
+      </div>
+    </section>
+
+    <!-- 12 · Complete -->
+    <section class="slide" id="done" data-primary="off">
+      <div class="card bare">
+        <div class="badge-wrap">
+          <span class="badge-ring"></span>
+          <span class="badge-ring late"></span>
+          <span class="spark s1"></span><span class="spark s2"></span><span class="spark s3"></span>
+          <span class="badge"><span data-i="check"></span></span>
+        </div>
+        <span class="kicker">Lab task complete</span>
+        <h1 class="title">Your Own Task, Framed and Refined</h1>
+        <p class="status ok">Your answers are downloaded</p>
+        <p class="lede">You framed a real task, refined it, and knew when to stop. Share your file with your facilitator.</p>
+        <div class="row mid">
+          <button type="button" class="btn btn-ghost btn-sm" id="download-again"><span data-i="download"></span>Download again</button>
+          <button type="button" class="btn-link" data-go="intro"><span data-i="refresh"></span>Start over</button>
+        </div>
+        <p class="small">Remember: never type real names, marks, phone numbers or ID numbers into an AI tool.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <div class="foot-left" id="progress" role="status"></div>
+    <div class="nav">
+      <button type="button" class="btn btn-ghost" id="back"><span data-i="arrow-left"></span><span class="btn-back-label">Back</span></button>
+      <button type="button" class="btn btn-primary" id="primary">Continue</button>
+    </div>
+  </footer>
 
 </div>
 <script src="script.js"></script>
