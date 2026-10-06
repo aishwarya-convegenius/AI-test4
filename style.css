@@ -1120,3 +1120,86 @@ textarea.input { display: block; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* ESL upgrade (game-specific) */
+/* Hidden slides sat 10px lower for the entrance animation, which made the stage 10px taller than the screen.
+   A slight zoom-in gives the same entrance without any overflow. */
+.slide { transform: scale(0.985); }
+.slide.show { transform: none; }
+/* Frame slide: in the right column, stack the 4 boxes above the request preview so the example text is not cut off. */
+#frame .saa-work .two-col { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+#frame .saa-work .fields { gap: 0.6rem; }
+#frame .saa-work .col { display: flex; flex-direction: column; gap: 0.4rem; }
+/* Five moves: the back of each card holds the move, when to use it and what to say, so give the cards a little more height. */
+#moves .saa-card { min-height: clamp(84px, 15vh, 170px); }
+
+/* Game 8 designer assets (Oct 2026) */
+/* request-part tints from the designer pack (components/request-part-tints.css), dark theme */
+.request-parts{--role-tint:#EEF1FF;--context-tint:#E4EAFF;--task-tint:#DCE4FF;--format-tint:#D3DEFF;--part-ink:#0E1A4F}
+.request-parts[data-theme="dark"]{--role-tint:#172552;--context-tint:#1B2C61;--task-tint:#20346E;--format-tint:#263F7B;--part-ink:#F6F4EF}
+.request-parts [data-part="role"]{background:var(--role-tint)}
+.request-parts [data-part="context"]{background:var(--context-tint)}
+.request-parts [data-part="task"]{background:var(--task-tint)}
+.request-parts [data-part="format"]{background:var(--format-tint)}
+.request-parts [data-part]{color:var(--part-ink);border-radius:8px}
+.request-parts .request-slot{display:inline;padding:3px 7px;box-decoration-break:clone;-webkit-box-decoration-break:clone;overflow-wrap:anywhere}
+.preview.request-parts .blank{color:var(--dim)}
+/* the tints sit on a lighter preview box, so give each part a thin edge to keep them apart */
+.preview.request-parts .request-slot{box-shadow:inset 0 0 0 1px rgba(143,160,255,.28)}
+/* screen 1: lab step icons next to the step numbers */
+.tile-top{display:flex;align-items:center;gap:.6rem}
+.tile-top .step-ic{width:32px;height:32px;flex:0 0 32px;display:block}
+/* screen 2: detail pictures on the chips, pictures on the two box headings */
+.saa-kit .saa-chip{display:inline-flex;align-items:center;gap:.45rem}
+.saa-chip .det-ic{width:20px;height:20px;flex:0 0 20px;display:block}
+.saa-kit .saa-bin-h{display:flex;align-items:center;gap:.45rem}
+.saa-bin-h .bin-ic{width:24px;height:24px;flex:0 0 24px;display:block}
+/* screen 4: part icons on the field labels, tinted like the matching blank */
+.label .part-ic{width:20px;height:20px;padding:2px;box-sizing:content-box;display:inline-block;vertical-align:middle;margin:-6px .4rem -6px 0;border-radius:6px}
+/* screens 5 and 7: "See example" pop-up with the made-up chat */
+.see-ex{display:inline-flex;align-items:center;gap:.4rem;font-size:.875rem}
+.see-ex .ic{width:1.1em;height:1.1em}
+.label-row{display:flex;align-items:center;justify-content:space-between;gap:.75rem;flex-wrap:wrap}
+.label-row .see-ex{font-size:.8125rem}
+.ex-pop{position:fixed;inset:0;z-index:9000;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(4,7,22,.78);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.ex-pop[hidden]{display:none}
+.ex-pop-box{display:flex;flex-direction:column;align-items:center;gap:10px;max-width:min(860px,100%);padding:14px;border-radius:var(--radius-m,18px);background:var(--bg-2);border:1px solid var(--line-2,var(--line));box-shadow:var(--shadow)}
+.ex-pop-box .ex-fig{margin:0;width:min(800px,calc((100vh - 120px) * var(--ar,1.43)),calc(100vw - 60px));border-radius:12px;overflow:hidden}
+.ex-fig img{display:block;width:100%;height:auto}
+.ex-pop-close{align-self:flex-end}
+/* screens 6 to 8: move icons on the cards and chips */
+.saa-kit .saa-front .mv-top{display:flex;align-items:center;gap:.55rem;text-align:left}
+.saa-front .mv-ic{width:32px;height:32px;flex:0 0 32px;display:block}
+.chip .chip-ic{width:18px;height:18px;flex:0 0 18px;display:block}
+/* screen 9: ask again or fix it yourself, and the shared stop icon */
+.ask-fix{margin:.9rem 0 0;max-width:min(420px,100%)}
+.ask-fix img{display:block;width:auto;max-width:100%;height:auto;max-height:calc(22vh / var(--z,1));border-radius:12px}
+.stop-callout > .stop-ic{width:24px;height:24px;flex:0 0 24px;display:block;margin-top:-.1rem}
+/* screen 10: who did what */
+.label .who-ic{width:24px;height:24px;display:inline-block;vertical-align:middle;margin:-6px .4rem -6px 0}
+/* screen 12: the privacy rule as crossed-out pictures */
+.never-row{list-style:none;margin:0 0 -.4rem;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.4rem}
+.never-row img{width:24px;height:24px;display:block}
+@media (max-width:600px){.tile-top .step-ic{width:26px;height:26px;flex-basis:26px}}
+@media (max-width:760px){.flow .tile > .tile-top{grid-row:span 2;gap:.5rem}}
+
+/* QA fixes (Oct 2026) */
+/* gates on the typing screens: the message shows when Continue is pressed too early */
+.ga-gate{display:block;margin:0;min-height:0;color:var(--bad-ink);font-size:0.9375rem;font-weight:600;line-height:1.45}
+.ga-gate:empty{position:absolute;width:1px;height:1px;margin:0;padding:0;overflow:hidden;pointer-events:none}
+.ga-gate.ga-shake,.copy-msg.ga-shake{animation:saaShake .35s} /* not .saa-shake: a nudge, not a wrong answer (no wrong sound) */
+.copy-msg{margin:0;color:var(--bad-ink);font-size:0.9375rem;font-weight:600;line-height:1.45}
+.copy-msg:empty{display:none}
+.status.bad{color:var(--bad-ink)}
+/* done screen: the "never type" icons carry their words, as in Rewrite Five Weak Requests */
+.never-row li{display:flex;align-items:center;gap:.45rem;font-size:.8125rem;font-weight:600;color:var(--ink-3)}
+.never-row img{flex:0 0 24px}
+@media (max-width:760px){
+  .chip,.btn-sm,.see-ex,.list .btn-link{min-height:44px}
+  .list .btn-link{min-width:44px}
+  .input{min-height:44px}
+}
+/* phones: the activity column uses the full card width (answer boxes were squeezed to the width of their labels) */
+@media (max-width:760px){
+  .card.saa-split > .saa-work{align-self:stretch;width:100%}
+}

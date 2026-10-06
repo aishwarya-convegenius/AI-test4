@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="saa-upgrade.css">
+<link rel="stylesheet" href="saa-kit.css">
 </head>
 <body>
 <div class="app">
@@ -23,17 +25,17 @@
     <section class="slide" id="intro" data-next="Start">
       <div class="card narrow">
         <div class="head">
-          <div class="eyebrow">Practical Lab Task · 1.0 hrs · Practical</div>
+          <div class="eyebrow">Practical lab task · 1.0 hrs</div>
           <h1 class="title">Your Own Task, Framed and Refined</h1>
-          <p class="lede">Use a real task from your week. Frame it, refine it, and know when to stop.</p>
+          <p class="lede">You use a real task from your week. You frame it, refine it and learn when to stop.</p>
         </div>
         <div class="rule"></div>
         <div class="flow">
-          <div class="tile"><span class="dot-ic">1</span><h3>Frame it</h3><p>Write one clear, full request.</p></div>
+          <div class="tile"><div class="tile-top"><span class="dot-ic">1</span><img class="step-ic" src="assets/icons/icon-frame.webp" alt="" aria-hidden="true"></div><h3>Frame it</h3><p>Write one clear, full request.</p></div>
           <div class="flow-arrow"><span data-i="arrow-right"></span></div>
-          <div class="tile"><span class="dot-ic">2</span><h3>Refine it</h3><p>Improve the answer two times.</p></div>
+          <div class="tile"><div class="tile-top"><span class="dot-ic">2</span><img class="step-ic" src="assets/icons/icon-refine.webp" alt="" aria-hidden="true"></div><h3>Refine it</h3><p>Improve the answer two times.</p></div>
           <div class="flow-arrow"><span data-i="arrow-right"></span></div>
-          <div class="tile"><span class="dot-ic">3</span><h3>Stop and reflect</h3><p>Stop when fixing it yourself is faster.</p></div>
+          <div class="tile"><div class="tile-top"><span class="dot-ic">3</span><img class="step-ic" src="assets/icons/icon-stop.webp" alt="" aria-hidden="true"></div><h3>Stop and reflect</h3><p>Stop when fixing it yourself is faster.</p></div>
         </div>
         <div class="callout info"><span data-i="bot"></span><span>Keep your approved AI tool open in another tab.</span></div>
         <p class="code">AAI-E-MC1-S02-LAB02</p>
@@ -45,16 +47,26 @@
       <div class="card narrow">
         <div class="head">
           <div class="eyebrow">Before you start</div>
-          <h2 class="title">Practise with made-up details</h2>
-          <p class="lede">Never type these into an AI tool, not even for practice.</p>
+          <h2 class="title">Always practise with made-up details.</h2>
+          <p class="lede">Real names, marks, phone numbers and ID numbers are private. Never type them into an AI tool, even for practice.</p>
+          <p class="do saa-do"><b class="saa-do-label">Your task.</b> Sort each detail into the right box.</p>
+          <div class="callout info"><span data-i="download"></span><span>This page does not save your work. You will download your answers at the end.</span></div>
         </div>
-        <div class="grid g4">
-          <div class="tile center"><span class="dot-ic"><span data-i="user"></span></span><h3>Real names</h3></div>
-          <div class="tile center"><span class="dot-ic"><span data-i="award"></span></span><h3>Marks</h3></div>
-          <div class="tile center"><span class="dot-ic"><span data-i="phone"></span></span><h3>Phone numbers</h3></div>
-          <div class="tile center"><span class="dot-ic"><span data-i="id"></span></span><h3>ID numbers</h3></div>
+        <div class="saa-kit" data-kit="sort" data-style="deck" data-required data-shuffle data-done-text="All sorted. Real details stay out of the AI tool.">
+          <div class="saa-bins">
+            <div class="saa-bin" data-bin="a" data-label="Never type it"><p class="saa-bin-h"><img class="bin-ic" src="assets/icons/icon-never-type.webp" alt="" aria-hidden="true">Never type it</p></div>
+            <div class="saa-bin" data-bin="b" data-label="Safe for practice"><p class="saa-bin-h"><img class="bin-ic" src="assets/icons/icon-safe-practice.webp" alt="" aria-hidden="true">Safe for practice</p></div>
+          </div>
+          <div class="saa-pool">
+            <button class="saa-chip" type="button" data-bin="a" data-why="Yes. A real name belongs to a real person." data-hint="Not quite. Does this name belong to a real person?"><img class="det-ic" src="assets/icons/icon-private-name.webp" alt="" aria-hidden="true">A real name</button>
+            <button class="saa-chip" type="button" data-bin="a" data-why="Yes. Your marks are private records." data-hint="Not quite. Are real marks private?"><img class="det-ic" src="assets/icons/icon-private-marks.webp" alt="" aria-hidden="true">Real marks</button>
+            <button class="saa-chip" type="button" data-bin="a" data-why="Yes. A real phone number can reach a real person." data-hint="Not quite. Who can this number reach?"><img class="det-ic" src="assets/icons/icon-private-phone.webp" alt="" aria-hidden="true">A real phone number</button>
+            <button class="saa-chip" type="button" data-bin="a" data-why="Yes. A real ID number is private." data-hint="Not quite. Is a real ID number private?"><img class="det-ic" src="assets/icons/icon-private-id.webp" alt="" aria-hidden="true">A real ID number</button>
+            <button class="saa-chip" type="button" data-bin="b" data-why="Yes. A made-up name belongs to nobody." data-hint="Not quite. Does a made-up name belong to a real person?"><img class="det-ic" src="assets/icons/icon-private-name-madeup.webp" alt="" aria-hidden="true">A made-up name</button>
+            <button class="saa-chip" type="button" data-bin="b" data-why="Yes. A made-up number cannot reach a real person." data-hint="Not quite. Can a made-up number reach anyone?"><img class="det-ic" src="assets/icons/icon-private-phone-madeup.webp" alt="" aria-hidden="true">A made-up phone number</button>
+          </div>
+          <p class="saa-k-why"></p>
         </div>
-        <div class="callout info"><span data-i="download"></span><span>This page does not save your work. You will download your answers at the end.</span></div>
       </div>
     </section>
 
@@ -63,8 +75,9 @@
       <div class="card narrow">
         <div class="head">
           <div class="eyebrow">Step 1 · Pick your task</div>
-          <h2 class="title">Choose one small, real task</h2>
-          <p class="lede">Pick something from this week. Nothing private, nothing urgent.</p>
+          <h2 class="title">Choose one small, real task from this week.</h2>
+          <p class="lede">Pick a task that is not private and not urgent.</p>
+          <p class="do saa-do"><b class="saa-do-label">Your task.</b> Tap an idea, or type your own task in the box.</p>
         </div>
         <div class="field">
           <span class="label" id="idea-label">Need an idea? Tap one.</span>
@@ -76,7 +89,7 @@
         </div>
         <div class="field">
           <label class="label" for="task-name">My task</label>
-          <input class="input" type="text" id="task-name" placeholder="e.g. write a reminder about tomorrow's practical">
+          <input class="input" type="text" id="task-name" placeholder="Example: write a reminder about tomorrow's practical">
         </div>
       </div>
     </section>
@@ -86,32 +99,33 @@
       <div class="card">
         <div class="head">
           <div class="eyebrow">Step 2 · Frame it</div>
-          <h2 class="title">Fill in all 4 parts</h2>
-          <p class="lede">Together, they make your first request.</p>
+          <h2 class="title">Fill in the 4 parts of your request.</h2>
+          <p class="lede">The 4 parts are Role, Context, Task and Format. Together, they make your first request.</p>
+          <p class="do saa-do"><b class="saa-do-label">Your task.</b> Type a short answer in each of the 4 boxes.</p>
         </div>
         <div class="two-col">
-          <div class="fields">
+          <div class="fields request-parts" data-theme="dark">
             <div class="field">
-              <label class="label" for="b-role">Role <span class="help">who should the AI act as?</span></label>
-              <input class="input" type="text" id="b-role" placeholder="e.g. a workshop teacher">
+              <label class="label" for="b-role"><img class="part-ic" data-part="role" src="assets/icons/icon-role.webp" alt="" aria-hidden="true">Role <span class="help">Who should the AI act as?</span></label>
+              <input class="input" type="text" id="b-role" placeholder="Example: a workshop teacher">
             </div>
             <div class="field">
-              <label class="label" for="b-context">Context <span class="help">who is it for, and why?</span></label>
-              <input class="input" type="text" id="b-context" placeholder="e.g. my batch, before Monday's class">
+              <label class="label" for="b-context"><img class="part-ic" data-part="context" src="assets/icons/icon-context.webp" alt="" aria-hidden="true">Context <span class="help">Who is it for, and why?</span></label>
+              <input class="input" type="text" id="b-context" placeholder="Example: my batch, before Monday's class">
             </div>
             <div class="field">
-              <label class="label" for="b-task">Task <span class="help">what should the AI make?</span></label>
-              <input class="input" type="text" id="b-task" placeholder="e.g. write a short reminder">
+              <label class="label" for="b-task"><img class="part-ic" data-part="task" src="assets/icons/icon-task.webp" alt="" aria-hidden="true">Task <span class="help">What should the AI make?</span></label>
+              <input class="input" type="text" id="b-task" placeholder="Example: write a short reminder">
             </div>
             <div class="field">
-              <label class="label" for="b-format">Format <span class="help">how should it look?</span></label>
-              <input class="input" type="text" id="b-format" placeholder="e.g. 3 points for the noticeboard">
+              <label class="label" for="b-format"><img class="part-ic" data-part="format" src="assets/icons/icon-format.webp" alt="" aria-hidden="true">Format <span class="help">How should it look?</span></label>
+              <input class="input" type="text" id="b-format" placeholder="Example: 3 points for the noticeboard">
             </div>
           </div>
           <div class="col">
             <span class="preview-label">Your request</span>
-            <div class="preview" data-preview aria-live="polite"></div>
-            <p class="small">It builds as you type.</p>
+            <div class="preview request-parts" data-theme="dark" data-preview aria-live="polite"></div>
+            <p class="small">Your request builds as you type.</p>
           </div>
         </div>
       </div>
@@ -122,13 +136,16 @@
       <div class="card narrow">
         <div class="head">
           <div class="eyebrow">Step 2 · Ask the AI</div>
-          <h2 class="title">Run your request</h2>
-          <p class="lede">Copy your request and paste it into your AI tool. Then paste its first answer here.</p>
+          <h2 class="title">Now run your request in your AI tool.</h2>
+          <p class="lede">Your AI tool gives you a first answer. You improve this answer in the next step.</p>
+          <p class="do saa-do"><b class="saa-do-label">Your task.</b> Copy your request into your AI tool, then paste its first answer below.</p>
         </div>
-        <div class="preview" data-preview></div>
+        <div class="preview request-parts" data-theme="dark" data-preview></div>
         <div class="row">
           <button type="button" class="btn btn-ghost btn-sm" id="copy-request"><span data-i="copy"></span>Copy request</button>
+          <button type="button" class="btn-link see-ex" data-see-example="run" aria-haspopup="dialog"><span data-i="eye"></span>See example</button>
         </div>
+        <p class="copy-msg saa-k-why" id="copy-msg" aria-live="polite"></p>
         <div class="field">
           <label class="label" for="out-first">The AI's first answer</label>
           <textarea class="input" id="out-first" rows="4" placeholder="Paste the AI's answer here"></textarea>
@@ -141,10 +158,36 @@
       <div class="card narrow">
         <div class="head">
           <div class="eyebrow">Step 3 · Refine it</div>
-          <h2 class="title">Five ways to improve an answer</h2>
+          <h2 class="title">You can improve an answer in 5 ways.</h2>
           <p class="lede">Look at what is wrong with the answer. Then pick the move that fixes it.</p>
+          <p class="do saa-do"><b class="saa-do-label">Your task.</b> Turn the dial to moves 1 to 3, then tap cards 4 and 5.</p>
         </div>
-        <ul class="list" id="move-list"></ul>
+        <!-- moves 1 to 3: turn the dial and see what each move does to a sample answer -->
+        <div class="saa-kit yot-dial" data-kit="dial" data-required data-label="Move dial">
+          <div class="saa-dial-stop" data-start data-why="This is the first answer. Now try each of the 3 moves.">
+            <span class="saa-d-name">First answer</span>
+            <p class="saa-d-you">Write a reminder for my batch about tomorrow's practical.</p>
+            <p class="saa-d-ans">The practical is tomorrow at 9:00. Uniform is required. All trainees must bring their own tools.</p>
+          </div>
+          <div class="saa-dial-stop" data-why="Use Narrow when the answer covers too much. Now it talks about one part only.">
+            <span class="saa-d-name"><img src="assets/icons/icon-move-1.webp" alt="" aria-hidden="true">1. Narrow</span>
+            <p class="saa-d-you">Only tell me about <mark>the timing part</mark>.</p>
+            <p class="saa-d-ans">Practical starts at 9:00. Be at the lab by 8:50.</p>
+          </div>
+          <div class="saa-dial-stop" data-why="Use Expand when the answer is too short. Now it gives more detail.">
+            <span class="saa-d-name"><img src="assets/icons/icon-move-2.webp" alt="" aria-hidden="true">2. Expand</span>
+            <p class="saa-d-you">Tell me more about <mark>the tools</mark>.</p>
+            <p class="saa-d-ans">The practical is tomorrow at 9:00. Uniform is required. Bring a screwdriver, pliers and a measuring tape. Put your name on each tool.</p>
+          </div>
+          <div class="saa-dial-stop" data-why="Use Change register when the tone or words are wrong. Now it sounds friendly and simple.">
+            <span class="saa-d-name"><img src="assets/icons/icon-move-3.webp" alt="" aria-hidden="true">3. Change register</span>
+            <p class="saa-d-you">Say this simply for <mark>my batch</mark>.</p>
+            <p class="saa-d-ans">Hi everyone! Our practical is tomorrow at 9:00. Wear your uniform and bring your own tools.</p>
+          </div>
+          <p class="saa-k-why"></p>
+        </div>
+        <!-- moves 4 and 5: script.js fills this reveal kit from MOVES -->
+        <div class="saa-kit" data-kit="reveal" data-required id="move-list"></div>
       </div>
     </section>
 
@@ -153,15 +196,17 @@
       <div class="card narrow">
         <div class="head">
           <div class="eyebrow">Step 3 · Round 1 of 2</div>
-          <h2 class="title">Refine it: round 1</h2>
+          <h2 class="title">In round 1, you improve the answer with one move.</h2>
+          <p class="lede">Look at the AI's first answer. Pick the move that fixes its biggest problem.</p>
+          <p class="do saa-do"><b class="saa-do-label">Your task.</b> Tap your move, then type what you asked and paste the new answer.</p>
         </div>
         <div class="field">
           <span class="label" id="r1-label">Which move did you use?</span>
           <div class="chips" data-moves="r1" role="group" aria-labelledby="r1-label"></div>
         </div>
         <div class="field">
-          <label class="label" for="r1-ask">What did you ask the AI?</label>
-          <textarea class="input" id="r1-ask" rows="2" placeholder="e.g. Only tell me about the timing part."></textarea>
+          <div class="label-row"><label class="label" for="r1-ask">What did you ask the AI?</label><button type="button" class="btn-link see-ex" data-see-example="r1" aria-haspopup="dialog"><span data-i="eye"></span>See example</button></div>
+          <textarea class="input" id="r1-ask" rows="2" placeholder="Example: Only tell me about the timing part."></textarea>
         </div>
         <div class="field">
           <label class="label" for="r1-out">The AI's new answer</label>
@@ -175,7 +220,9 @@
       <div class="card narrow">
         <div class="head">
           <div class="eyebrow">Step 3 · Round 2 of 2</div>
-          <h2 class="title">Refine it: round 2</h2>
+          <h2 class="title">In round 2, you improve the answer one more time.</h2>
+          <p class="lede">Look at the new answer from round 1. Pick the move that fixes what is still wrong.</p>
+          <p class="do saa-do"><b class="saa-do-label">Your task.</b> Tap your move, then type what you asked and paste the new answer.</p>
         </div>
         <div class="field">
           <span class="label" id="r2-label">Which move did you use?</span>
@@ -183,7 +230,7 @@
         </div>
         <div class="field">
           <label class="label" for="r2-ask">What did you ask the AI?</label>
-          <textarea class="input" id="r2-ask" rows="2" placeholder="e.g. What might be wrong here?"></textarea>
+          <textarea class="input" id="r2-ask" rows="2" placeholder="Example: What might be wrong here?"></textarea>
         </div>
         <div class="field">
           <label class="label" for="r2-out">The AI's new answer</label>
@@ -198,12 +245,14 @@
         <div class="head">
           <div class="eyebrow">Step 4 · Know when to stop</div>
           <h2 class="title">When should you stop?</h2>
-          <p class="lede">At some point, fixing it yourself is faster than asking again.</p>
+          <p class="lede">Sometimes fixing the answer yourself is faster than asking the AI again.</p>
+          <figure class="ask-fix"><img src="assets/diag-ask-or-fix.webp" width="480" height="200" alt="Two choices. Ask the AI again: a chat bubble and a clock showing more time. Fix it yourself: a hand with a pencil editing one line and a clock showing less time, with a tick."></figure>
+          <p class="do saa-do"><b class="saa-do-label">Your task.</b> Type where you stopped and why you stopped there.</p>
         </div>
-        <div class="callout"><span data-i="stop"></span><span><strong>Stop rule.</strong> If fixing it yourself is faster, just fix it. Always check it before you use it.</span></div>
+        <div class="callout stop-callout"><img class="stop-ic" src="assets/icons/icon-stop.webp" alt="" aria-hidden="true"><span><strong>Stop rule.</strong> If fixing it yourself is faster, fix it yourself. Always check the answer before you use it.</span></div>
         <div class="field">
           <label class="label" for="stop-point">Where did you stop, and why?</label>
-          <textarea class="input" id="stop-point" rows="3" placeholder="e.g. I stopped after round 2 and fixed the last line myself. It was quicker."></textarea>
+          <textarea class="input" id="stop-point" rows="3" placeholder="Example: I stopped after round 2 and fixed the last line myself. It was quicker."></textarea>
         </div>
       </div>
     </section>
@@ -213,17 +262,18 @@
       <div class="card">
         <div class="head">
           <div class="eyebrow">Step 5 · Reflect</div>
-          <h2 class="title">Who did what?</h2>
-          <p class="lede">Think about your part and the AI's part. Both matter.</p>
+          <h2 class="title">Who did what, you or the AI?</h2>
+          <p class="lede">Think about your part and the AI's part. Both parts matter.</p>
+          <p class="do saa-do"><b class="saa-do-label">Your task.</b> Type what the AI helped with and what you did yourself.</p>
         </div>
         <div class="grid g2">
           <div class="field">
-            <label class="label" for="ai-part">What the AI helped with</label>
-            <textarea class="input" id="ai-part" rows="5" placeholder="e.g. It gave me a first draft and made it shorter."></textarea>
+            <label class="label" for="ai-part"><img class="who-ic" src="assets/icons/icon-ai-helper.webp" alt="" aria-hidden="true">What the AI helped with</label>
+            <textarea class="input" id="ai-part" rows="5" placeholder="Example: It gave me a first draft and made it shorter."></textarea>
           </div>
           <div class="field">
-            <label class="label" for="my-part">What I did myself</label>
-            <textarea class="input" id="my-part" rows="5" placeholder="e.g. I picked the task, checked the facts and fixed the last line."></textarea>
+            <label class="label" for="my-part"><img class="who-ic" src="assets/icons/icon-me.webp" alt="" aria-hidden="true">What I did myself</label>
+            <textarea class="input" id="my-part" rows="5" placeholder="Example: I picked the task, checked the facts and fixed the last line."></textarea>
           </div>
         </div>
       </div>
@@ -234,10 +284,13 @@
       <div class="card narrow">
         <div class="head">
           <div class="eyebrow">Your evidence</div>
-          <h2 class="title">Check your work, then download it</h2>
+          <h2 class="title">Check your work, then download your answers.</h2>
+          <p class="lede">A tick shows a part you finished. A pen shows a part that is still empty.</p>
+          <p class="do saa-do"><b class="saa-do-label">Your task.</b> Tap Add to fill any empty part, then download your answers.</p>
         </div>
         <ul class="list" id="evidence-list"></ul>
-        <div class="callout info"><span data-i="info"></span><span>This page does not save your work. Download it, or show your facilitator, before you close this tab.</span></div>
+        <div class="callout bad saa-k-why" id="evidence-warn" hidden><span data-i="warn"></span><span>Some parts are still empty. Tap Add to fill them, or tap Download anyway.</span></div>
+        <div class="callout info"><span data-i="info"></span><span>This page does not save your work. Download it or show it to your facilitator before you close this tab.</span></div>
       </div>
     </section>
 
@@ -251,14 +304,15 @@
           <span class="badge"><span data-i="check"></span></span>
         </div>
         <span class="kicker">Lab task complete</span>
-        <h1 class="title">Your Own Task, Framed and Refined</h1>
-        <p class="status ok">Your answers are downloaded</p>
-        <p class="lede">You framed a real task, refined it, and knew when to stop. Share your file with your facilitator.</p>
+        <h1 class="title">You framed and refined your own task.</h1>
+        <p class="status ok saa-vo-skip" id="done-status" aria-live="polite">Your answers are downloaded.</p>
+        <p class="lede" id="done-lede">You framed a real task, refined it and knew when to stop. Share your file with your facilitator.</p>
         <div class="row mid">
           <button type="button" class="btn btn-ghost btn-sm" id="download-again"><span data-i="download"></span>Download again</button>
-          <button type="button" class="btn-link" data-go="intro"><span data-i="refresh"></span>Start over</button>
+          <button type="button" class="btn-link" id="start-over"><span data-i="refresh"></span>Start over</button>
         </div>
-        <p class="small">Remember: never type real names, marks, phone numbers or ID numbers into an AI tool.</p>
+        <ul class="never-row" aria-hidden="true"><li><img src="assets/icons/icon-private-name-never.webp" alt=""><span>Names</span></li><li><img src="assets/icons/icon-private-marks-never.webp" alt=""><span>Marks</span></li><li><img src="assets/icons/icon-private-phone-never.webp" alt=""><span>Phone numbers</span></li><li><img src="assets/icons/icon-private-id-never.webp" alt=""><span>ID numbers</span></li></ul>
+        <p class="small">Never type real names, marks, phone numbers or ID numbers into an AI tool.</p>
       </div>
     </section>
 
@@ -274,5 +328,7 @@
 
 </div>
 <script src="script.js"></script>
+<script src="saa-upgrade.js"></script>
+<script src="saa-kit.js"></script>
 </body>
 </html>

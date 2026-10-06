@@ -1,0 +1,298 @@
+{
+ "veee1f684": {
+  "text": "Your Own Task, Framed and Refined. You use a real task from your week. You frame it, refine it and learn when to stop.",
+  "kind": "screen",
+  "screens": [
+   1
+  ]
+ },
+ "v29cbc69a": {
+  "text": "Always practise with made-up details. Real names, marks, phone numbers and ID numbers are private. Never type them into an AI tool, even for practice. Your task. Sort each detail into the right box. This page does not save your work. You will download your answers at the end.",
+  "kind": "screen",
+  "screens": [
+   2
+  ]
+ },
+ "v60f3a40c": {
+  "text": "Choose one small, real task from this week. Pick a task that is not private and not urgent. Your task. Tap an idea, or type your own task in the box.",
+  "kind": "screen",
+  "screens": [
+   3
+  ]
+ },
+ "v3669012c": {
+  "text": "Fill in the 4 parts of your request. The 4 parts are Role, Context, Task and Format. Together, they make your first request. Your task. Type a short answer in each of the 4 boxes.",
+  "kind": "screen",
+  "screens": [
+   4
+  ]
+ },
+ "v55e2837c": {
+  "text": "Now run your request in your AI tool. Your AI tool gives you a first answer. You improve this answer in the next step. Your task. Copy your request into your AI tool, then paste its first answer below.",
+  "kind": "screen",
+  "screens": [
+   5
+  ]
+ },
+ "v1885fc51": {
+  "text": "You can improve an answer in 5 ways. Look at what is wrong with the answer. Then pick the move that fixes it. Your task. Turn the dial to moves 1 to 3, then tap cards 4 and 5.",
+  "kind": "screen",
+  "screens": [
+   6
+  ]
+ },
+ "v4d466fda": {
+  "text": "In round 1, you improve the answer with one move. Look at the AI's first answer. Pick the move that fixes its biggest problem. Your task. Tap your move, then type what you asked and paste the new answer.",
+  "kind": "screen",
+  "screens": [
+   7
+  ]
+ },
+ "v0ff2830e": {
+  "text": "In round 2, you improve the answer one more time. Look at the new answer from round 1. Pick the move that fixes what is still wrong. Your task. Tap your move, then type what you asked and paste the new answer.",
+  "kind": "screen",
+  "screens": [
+   8
+  ]
+ },
+ "v43c127d9": {
+  "text": "When should you stop? Sometimes fixing the answer yourself is faster than asking the AI again. Your task. Type where you stopped and why you stopped there.",
+  "kind": "screen",
+  "screens": [
+   9
+  ]
+ },
+ "v504027f5": {
+  "text": "Who did what, you or the AI? Think about your part and the AI's part. Both parts matter. Your task. Type what the AI helped with and what you did yourself.",
+  "kind": "screen",
+  "screens": [
+   10
+  ]
+ },
+ "v06f3e9c0": {
+  "text": "Check your work, then download your answers. A tick shows a part you finished. A pen shows a part that is still empty. Your task. Tap Add to fill any empty part, then download your answers.",
+  "kind": "screen",
+  "screens": [
+   11
+  ]
+ },
+ "v8c5d5be9": {
+  "text": "You framed and refined your own task. Your answers are downloaded. You framed a real task, refined it and knew when to stop. Share your file with your facilitator. Never type real names, marks, phone numbers or ID numbers into an AI tool.",
+  "kind": "screen",
+  "screens": [
+   12
+  ]
+ },
+ "vbf591b52": {
+  "text": "All sorted. Real details stay out of the AI tool.",
+  "kind": "feedback",
+  "screens": []
+ },
+ "v8bca15fb": {
+  "text": "Yes. A made-up name belongs to nobody.",
+  "kind": "feedback",
+  "screens": []
+ },
+ "v6662d373": {
+  "text": "Not quite. Does a made-up name belong to a real person?",
+  "kind": "feedback",
+  "screens": []
+ },
+ "v9c0de755": {
+  "text": "Yes. A made-up number cannot reach a real person.",
+  "kind": "feedback",
+  "screens": []
+ },
+ "vb49c8be3": {
+  "text": "Not quite. Can a made-up number reach anyone?",
+  "kind": "feedback",
+  "screens": []
+ },
+ "v0416df0f": {
+  "text": "Yes. A real phone number can reach a real person.",
+  "kind": "feedback",
+  "screens": []
+ },
+ "vafb19447": {
+  "text": "Not quite. Who can this number reach?",
+  "kind": "feedback",
+  "screens": []
+ },
+ "vc348247a": {
+  "text": "Yes. Your marks are private records.",
+  "kind": "feedback",
+  "screens": []
+ },
+ "v2e65874e": {
+  "text": "Not quite. Are real marks private?",
+  "kind": "feedback",
+  "screens": []
+ },
+ "v744ed63a": {
+  "text": "Yes. A real ID number is private.",
+  "kind": "feedback",
+  "screens": []
+ },
+ "v86c92c57": {
+  "text": "Not quite. Is a real ID number private?",
+  "kind": "feedback",
+  "screens": []
+ },
+ "vb4d16a8d": {
+  "text": "Yes. A real name belongs to a real person.",
+  "kind": "feedback",
+  "screens": []
+ },
+ "v1bbde923": {
+  "text": "Not quite. Does this name belong to a real person?",
+  "kind": "feedback",
+  "screens": []
+ },
+ "v81634cc1": {
+  "text": "This is the first answer. Now try each of the 3 moves.",
+  "kind": "feedback",
+  "screens": []
+ },
+ "vc62f4b4f": {
+  "text": "Use Narrow when the answer covers too much. Now it talks about one part only.",
+  "kind": "feedback",
+  "screens": []
+ },
+ "v69fcc878": {
+  "text": "Use Expand when the answer is too short. Now it gives more detail.",
+  "kind": "feedback",
+  "screens": []
+ },
+ "v78e83476": {
+  "text": "Use Change register when the tone or words are wrong. Now it sounds friendly and simple.",
+  "kind": "feedback",
+  "screens": []
+ },
+ "vb0edbb0d": {
+  "text": "Yes, that is right.",
+  "kind": "feedback",
+  "screens": []
+ },
+ "v5f4ff743": {
+  "text": "Not quite. Try again.",
+  "kind": "feedback",
+  "screens": []
+ },
+ "v4a004b3d": {
+  "text": "All sorted. Well done.",
+  "kind": "feedback",
+  "screens": []
+ },
+ "v912cd8bc": {
+  "text": "Not that one. Read it again and try the other box.",
+  "kind": "feedback",
+  "screens": []
+ },
+ "ve5c0f2ee": {
+  "text": "Yes. That is the right order.",
+  "kind": "feedback",
+  "screens": []
+ },
+ "v12d1dc0b": {
+  "text": "Not yet. The red steps are in the wrong place.",
+  "kind": "feedback",
+  "screens": []
+ },
+ "v2ca8188e": {
+  "text": "All stamped. Well done.",
+  "kind": "feedback",
+  "screens": []
+ },
+ "v35550fdb": {
+  "text": "Not quite. Read it again.",
+  "kind": "feedback",
+  "screens": []
+ },
+ "ve981313a": {
+  "text": "Yes.",
+  "kind": "feedback",
+  "screens": []
+ },
+ "v75251134": {
+  "text": "Check it. Use it when the answer sounds too sure. Say: “What might be wrong here?”",
+  "kind": "feedback",
+  "screens": []
+ },
+ "vc4b89019": {
+  "text": "Combine. Use it when you have two good answers. Say: “Combine the best of both.”",
+  "kind": "feedback",
+  "screens": []
+ },
+ "v31454e20": {
+  "text": "You framed and refined your own task. You framed a real task, refined it and knew when to stop. Share your file with your facilitator. Never type real names, marks, phone numbers or ID numbers into an AI tool.",
+  "kind": "screen",
+  "screens": [],
+  "from": "playthrough"
+ },
+ "v2ca83716": {
+  "text": "Type your task first. Use at least 3 words.",
+  "kind": "screen",
+  "screens": [],
+  "from": "playthrough"
+ },
+ "vfc00d0f6": {
+  "text": "Fill in all 4 parts first.",
+  "kind": "screen",
+  "screens": [],
+  "from": "playthrough"
+ },
+ "v6b06a742": {
+  "text": "Paste the AI's first answer in the box.",
+  "kind": "screen",
+  "screens": [],
+  "from": "playthrough"
+ },
+ "vbb42f172": {
+  "text": "Tap the move you used first.",
+  "kind": "screen",
+  "screens": [],
+  "from": "playthrough"
+ },
+ "v2ea5c7c7": {
+  "text": "Type what you asked the AI first.",
+  "kind": "screen",
+  "screens": [],
+  "from": "playthrough"
+ },
+ "v2ede46b3": {
+  "text": "Paste the new answer first.",
+  "kind": "screen",
+  "screens": [],
+  "from": "playthrough"
+ },
+ "v2192bc71": {
+  "text": "Type where you stopped and why first.",
+  "kind": "screen",
+  "screens": [],
+  "from": "playthrough"
+ },
+ "v76f95767": {
+  "text": "Type a short answer in both boxes first.",
+  "kind": "screen",
+  "screens": [],
+  "from": "playthrough"
+ },
+ "v10ceb510": {
+  "text": "Some parts are still empty. Tap Back and fill in all 4 parts first.",
+  "kind": "screen",
+  "screens": [],
+  "from": "playthrough"
+ },
+ "v5fa3db53": {
+  "text": "Some parts are still empty. Tap Add to fill them, or tap Download anyway.",
+  "kind": "screen",
+  "screens": [],
+  "from": "playthrough"
+ },
+ "va2434a12": {
+  "text": "You framed and refined your own task. Go back, fill in every part and download again. Then share your file with your facilitator. Never type real names, marks, phone numbers or ID numbers into an AI tool.",
+  "kind": "screen",
+  "screens": [],
+  "from": "playthrough"
+ }
+}

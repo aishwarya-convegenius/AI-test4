@@ -224,7 +224,9 @@
         var head = s.querySelector('h1, h2');
         if (head) {
           head.setAttribute('tabindex', '-1');
-          try { head.focus({ preventScroll: true }); } catch (e) { head.focus(); }
+          // the layer frees the new screen for focus a moment later: focus its heading then
+          var focusHead = function () { if (Deck.current() === s) { try { head.focus({ preventScroll: true }); } catch (e) { head.focus(); } } };
+          focusHead(); setTimeout(focusHead, 120);
         }
       }
     },
@@ -342,13 +344,14 @@
   function $(id) { return document.getElementById(id); }
   function val(id) { var el = $(id); return el ? el.value.trim() : ''; }
 
-  // The five moves, as on the Prompt Card's Fix side.
-  $('move-list').innerHTML = MOVES.map(function (m, i) {
-    return '<li><span class="dot-ic sm">' + (i + 1) + '</span>' +
-      '<span class="li-main"><span class="li-title">' + esc(m.name) + '</span><span class="li-sub">' + esc(m.when) + '</span>' +
-      '<span class="li-say-m">“' + esc(m.say) + '”</span></span>' +
-      '<span class="li-say">“' + esc(m.say) + '”</span></li>';
-  }).join('');
+  // Moves 4 and 5, as on the Prompt Card's Fix side: tap-to-reveal cards (saa-kit reveal).
+  // Moves 1 to 3 are shown with the dial kit in index.html.
+  $('move-list').innerHTML = '<div class="saa-cards">' + MOVES.slice(3).map(function (m, j) {
+    var i = j + 3;
+    var when = m.when.charAt(0).toLowerCase() + m.when.slice(1);
+    return '<button class="saa-card" type="button"><span class="saa-front"><span class="mv-top"><img class="mv-ic" src="assets/icons/icon-move-' + (i + 1) + '.webp" alt="" aria-hidden="true">' + (i + 1) + '. ' + esc(m.name) + '</span></span>' +
+      '<span class="saa-back"><b>' + esc(m.name) + '.</b> Use it when ' + esc(when) + ' Say: “' + esc(m.say) + '”</span></button>';
+  }).join('') + '</div>';
 
   // Step 1: idea chips fill in the task.
   var ideas = $('ideas');
@@ -366,8 +369,8 @@
     return 'You are ' + v[0] + '. For ' + v[1] + ', ' + v[2] + '. Format it as ' + v[3] + '.';
   }
   function slot(id) {
-    var v = val(id);
-    return v ? '<span class="slot">' + esc(v) + '</span>' : '<span class="blank">___</span>';
+    var v = val(id), part = id.slice(2);
+    return v ? '<span class="slot request-slot" data-part="' + part + '">' + esc(v) + '</span>' : '<span class="blank request-slot" data-part="' + part + '">___</span>';
   }
   function drawPreview() {
     var html = 'You are ' + slot('b-role') + '. For ' + slot('b-context') + ', ' + slot('b-task') +
@@ -379,6 +382,13 @@
 
   $('copy-request').addEventListener('click', function () {
     var btn = this;
+    // never copy a request that still has blanks
+    if (!parts.every(function (id) { return val(id).length >= 2; })) {
+      var m = $('copy-msg'); m.textContent = 'Some parts are still empty. Tap Back and fill in all 4 parts first.';
+      m.classList.remove('ga-shake'); void m.offsetWidth; m.classList.add('ga-shake');
+      return;
+    }
+    $('copy-msg').textContent = '';
     SAA.copyText(requestText(), function () {
       btn.classList.add('done');
       btn.innerHTML = ic('check') + 'Copied';
@@ -389,10 +399,11 @@
 
   // Step 3: move chips for each round. Picking one suggests what to ask.
   var chosen = { r1: '', r2: '' };
+  var autoTask = '';
   document.querySelectorAll('[data-moves]').forEach(function (group) {
     var round = group.getAttribute('data-moves');
     group.innerHTML = MOVES.map(function (m, i) {
-      return '<button type="button" class="chip" aria-pressed="false" data-move="' + i + '">' + esc(m.name) + '</button>';
+      return '<button type="button" class="chip" aria-pressed="false" data-move="' + i + '"><img class="chip-ic" src="assets/icons/icon-move-' + (i + 1) + '.webp" alt="" aria-hidden="true">' + esc(m.name) + '</button>';
     }).join('');
     group.addEventListener('click', function (e) {
       var chip = e.target.closest('[data-move]');
@@ -400,9 +411,43 @@
       var m = MOVES[parseInt(chip.getAttribute('data-move'), 10)];
       chosen[round] = m.name;
       group.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
-      $(round + '-ask').setAttribute('placeholder', 'e.g. ' + m.say);
+      $(round + '-ask').setAttribute('placeholder', 'Example: ' + m.say);
     });
   });
+
+  // "See example" pop-ups: a made-up chat that shows the copy and paste round trip (Step 2)
+  // and one refining round with the Narrow move (round 1). Pictures only, no answers to any check.
+  var EXAMPLES = {
+    run: { src: 'assets/tool-chat-frame-roundtrip.webp', w: 800, h: 560, label: 'Example: run your request',
+      alt: 'Example chat in an AI tool such as ChatGPT, Gemini or Claude. Step 1: paste your request in the message box at the bottom. Step 2: copy the first answer with the Copy button under it.' },
+    r1: { src: 'assets/tool-chat-frame-narrow.webp', w: 800, h: 500, label: 'Example: one refining round',
+      alt: 'Example refining round. The earlier answer covers timing, uniform and tools. The learner uses the Narrow move and asks: Only tell me about the timing part. The new answer: Practical starts at 9:00. Be at the lab by 8:50.' }
+  };
+  var exPop = document.createElement('div');
+  exPop.className = 'ex-pop';
+  exPop.hidden = true;
+  exPop.innerHTML = '<div class="ex-pop-box" role="dialog" aria-modal="true"><figure class="ex-fig"><img alt=""></figure>' +
+    '<button type="button" class="btn btn-ghost btn-sm ex-pop-close">' + ic('x') + 'Close</button></div>';
+  document.body.appendChild(exPop);
+  var exOpener = null;
+  function openEx(key, opener) {
+    var ex = EXAMPLES[key];
+    if (!ex) return;
+    var img = exPop.querySelector('img');
+    img.src = ex.src; img.alt = ex.alt; img.width = ex.w; img.height = ex.h;
+    exPop.querySelector('.ex-fig').style.setProperty('--ar', ex.w / ex.h);
+    exPop.querySelector('[role="dialog"]').setAttribute('aria-label', ex.label);
+    exOpener = opener;
+    exPop.hidden = false;
+    exPop.querySelector('.ex-pop-close').focus();
+  }
+  function closeEx() { if (exPop.hidden) return; exPop.hidden = true; if (exOpener) { try { exOpener.focus(); } catch (e) {} } }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-see-example]');
+    if (b) { openEx(b.getAttribute('data-see-example'), b); return; }
+    if (!exPop.hidden && (e.target === exPop || e.target.closest('.ex-pop-close'))) closeEx();
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeEx(); });
 
   // Evidence checklist: shows which parts are done, with a link back to any gaps.
   function evidence() {
@@ -430,7 +475,7 @@
       '',
       'My task: ' + or(val('task-name')),
       '',
-      'Framed request: ' + requestText(),
+      'Framed request: ' + (parts.some(function (id) { return val(id); }) ? requestText() : '(not answered)'),
       "AI's first answer: " + or(val('out-first')),
       '',
       'Round 1',
@@ -449,25 +494,109 @@
       'What I did myself: ' + or(val('my-part'))
     ].join('\n');
   }
+  function openItems() { return evidence().filter(function (i) { return !i.ok; }).length; }
   function save() {
     SAA.download('your-own-task-framed-and-refined-answers.txt', buildFile());
-    SAA.toast('Your answers are downloaded');
+    var open = openItems();
+    $('done-status').textContent = open ? 'Your answers are downloaded, but ' + open + (open > 1 ? ' parts are' : ' part is') + ' still empty.' : 'Your answers are downloaded.';
+    $('done-status').className = 'status saa-vo-skip ' + (open ? 'bad' : 'ok');
+    $('done-lede').textContent = open ? 'Go back, fill in every part and download again. Then share your file with your facilitator.' : 'You framed a real task, refined it and knew when to stop. Share your file with your facilitator.';
   }
+  // the status line says it is downloaded; a toast would cover the rule line
   $('download-again').addEventListener('click', save);
+  // Start over: a clean reload clears every answer
+  $('start-over').addEventListener('click', function () { window.__g8Leaving = true; location.reload(); });
+  var warned = false;
+
+  /* ---------- gates: Continue waits for the work on each typing screen ----------
+     Each gate line carries data-saa-locked until its task is done, so the shared kit dims
+     Continue the same way as on the kit screens; this script blocks the click itself. Pressing it early shows what is still needed. */
+  var MIN_PASTE = 15;
+  function words(v) { return v.split(/\s+/).filter(function (w) { return /\w/.test(w); }).length; }
+  var GATES = {
+    pick: function () { return words(val('task-name')) >= 3 ? '' : 'Type your task first. Use at least 3 words.'; },
+    frame: function () { return parts.every(function (id) { return val(id).length >= 2; }) ? '' : 'Fill in all 4 parts first.'; },
+    run: function () { return val('out-first').length >= MIN_PASTE ? '' : "Paste the AI's first answer in the box."; },
+    r1: function () { return roundMsg('r1'); },
+    r2: function () { return roundMsg('r2'); },
+    stop: function () { return words(val('stop-point')) >= 4 ? '' : 'Type where you stopped and why first.'; },
+    reflect: function () { return words(val('ai-part')) >= 3 && words(val('my-part')) >= 3 ? '' : 'Type a short answer in both boxes first.'; }
+  };
+  function roundMsg(r) {
+    if (!chosen[r]) return 'Tap the move you used first.';
+    if (words(val(r + '-ask')) < 3) return 'Type what you asked the AI first.';
+    if (val(r + '-out').length < MIN_PASTE) return 'Paste the new answer first.';
+    return '';
+  }
+  Object.keys(GATES).forEach(function (id) {
+    var g = document.createElement('p');
+    g.className = 'ga-gate saa-k-why';
+    g.setAttribute('data-saa-locked', ''); g.setAttribute('data-gate', id); g.setAttribute('aria-live', 'polite');
+    $(id).querySelector('.card').appendChild(g);
+  });
+  var gates = Array.prototype.slice.call(document.querySelectorAll('.ga-gate'));
+  function refreshGates() {
+    gates.forEach(function (g) {
+      var d = !GATES[g.getAttribute('data-gate')]();
+      if (d !== g.classList.contains('is-done')) {
+        g.classList.toggle('is-done', d);
+        if (d) { g.removeAttribute('data-saa-locked'); } else { g.setAttribute('data-saa-locked', ''); }
+        if (d) { g.textContent = ''; try { g.dispatchEvent(new CustomEvent('saa:done', { bubbles: true })); } catch (e) {} }
+      }
+    });
+  }
+  document.addEventListener('input', refreshGates);
+  document.addEventListener('click', function () { setTimeout(refreshGates, 0); });
+  // registered before saa-kit.js loads
+  document.addEventListener('click', function (e) {
+    if (!(e.target.closest && e.target.closest('#primary'))) return;
+    var s = Deck.current(), g = s && s.querySelector('.ga-gate');
+    if (!g) return;
+    var m = GATES[g.getAttribute('data-gate')]();
+    if (!m) { refreshGates(); return; }
+    e.preventDefault(); e.stopImmediatePropagation();
+    refreshGates();
+    g.textContent = m;
+    g.classList.remove('ga-shake'); void g.offsetWidth; g.classList.add('ga-shake');
+    var f = /Tap the move/.test(m) ? s.querySelector('[data-moves] .chip')
+      : [].filter.call(s.querySelectorAll('input, textarea'), function (x) { return !x.value.trim() || (x.tagName === 'TEXTAREA' ? x.value.trim().length < MIN_PASTE : x.value.trim().length < 2); })[0];
+    if (f) { try { f.focus({ preventScroll: false }); } catch (x) { f.focus(); } }
+    Deck.fit();
+  }, true);
+
+  // typed or pasted work is lost on a refresh: ask first
+  window.addEventListener('beforeunload', function (e) {
+    if (window.__g8Leaving) return;
+    var typed = [].some.call(document.querySelectorAll('.slide input, .slide textarea'), function (x) { return x.value.trim(); });
+    if (typed) { e.preventDefault(); e.returnValue = ''; }
+  });
 
   Deck.init({
     frame: {
       // Carry the task from Step 1 into the Task part, so it is not typed twice.
+      // A changed task from Step 1 also replaces a Task that was filled in this way and not edited since.
       enter: function () {
-        if (val('task-name') && !val('b-task')) {
-          $('b-task').value = val('task-name');
+        if (val('task-name') && (!val('b-task') || val('b-task') === autoTask)) {
+          $('b-task').value = autoTask = val('task-name');
           drawPreview();
+          refreshGates();
         }
       }
     },
     evidence: {
-      enter: drawEvidence,
-      primary: function () { save(); }
+      enter: function () { warned = false; $('evidence-warn').hidden = true; drawEvidence(); },
+      primary: function () {
+        // unfinished work: say so once, then the learner may still download
+        if (openItems() && !warned) {
+          warned = true; $('evidence-warn').hidden = false;
+          var wt = $('evidence-warn').lastElementChild; wt.textContent = wt.textContent;   /* new text: the layer reads it */
+          Deck.setPrimary('Download anyway', { icon: 'download' });
+          Deck.fit();
+          return false;
+        }
+        save();
+      }
     }
   });
+  refreshGates();
 })();
